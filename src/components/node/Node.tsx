@@ -37,28 +37,30 @@ export const Node: React.FC<INodeProps> = (props) => {
 
   return (
     <>
-      <div className={styles.node} style={style}>
-        <div className={styles.icon}>
-          {props.node.nodes && props.node.nodes.length > 0 && (
-            <>
-              {expanded ? (
-                <ExpandIcon
-                  onClick={onCollapse}
-                  width={"1.5rem"}
-                  height={"1.5rem"}
-                />
-              ) : (
-                <CollapseIcon
-                  onClick={onExpand}
-                  width={"1.5rem"}
-                  height={"1.5rem"}
-                />
-              )}
-            </>
-          )}
-        </div>
-        <div className={styles.caption} onClick={onSelectNode}>
-          {props.node.caption}
+      <div className={styles.container}>
+        <div className={styles.node} style={style}>
+          <div className={styles.icon}>
+            {props.node.nodes && props.node.nodes.length > 0 && (
+              <>
+                {expanded ? (
+                  <ExpandIcon
+                    onClick={onCollapse}
+                    width={"1.5rem"}
+                    height={"1.5rem"}
+                  />
+                ) : (
+                  <CollapseIcon
+                    onClick={onExpand}
+                    width={"1.5rem"}
+                    height={"1.5rem"}
+                  />
+                )}
+              </>
+            )}
+          </div>
+          <div className={styles.caption} onClick={onSelectNode}>
+            {props.node.caption}
+          </div>
         </div>
       </div>
       {expanded && <div>{items}</div>}
