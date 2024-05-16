@@ -14,6 +14,8 @@ export const Node: React.FC<INodeProps> = (props) => {
       key={node.caption}
       level={nextLevel}
       node={node}
+      onCollapseNode={(node) => props.onCollapseNode?.(node)}
+      onExpandNode={(node) => props.onExpandNode?.(node)}
       onSelectNode={(node) => props.onSelectNode?.(node)}
     />
   ));
@@ -22,9 +24,14 @@ export const Node: React.FC<INodeProps> = (props) => {
     marginLeft: `${props.level * 1}rem`,
   } as CSSProperties;
 
-  const onCollapse = () => setExpanded(false);
-
-  const onExpand = () => setExpanded(true);
+  const onCollapse = () => {
+    setExpanded(false);
+    props.onCollapseNode?.(props.node);
+  };
+  const onExpand = () => {
+    setExpanded(true);
+    props.onExpandNode?.(props.node);
+  };
 
   const onSelectNode = () => props.onSelectNode?.(props.node);
 

@@ -1,6 +1,6 @@
 import { INode } from "../../model/INode";
-import { IHaveSelectNode } from "../../types/IHaveSelectNode";
+import { IHaveNodeEvents } from "../../types/IHaveNodeEvents";
 
-export interface ITreeProps extends IHaveSelectNode {
+export interface ITreeProps extends IHaveNodeEvents {
   rootNode: INode;
 }

@@ -6,6 +6,8 @@ export const Tree: React.FC<ITreeProps> = (props) => {
     <Node
       node={props.rootNode}
       level={0}
+      onCollapseNode={(node) => props.onCollapseNode?.(node)}
+      onExpandNode={(node) => props.onExpandNode?.(node)}
       onSelectNode={(node) => props.onSelectNode?.(node)}
     />
   );

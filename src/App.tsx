@@ -10,6 +10,12 @@ export const App: React.FC = () => {
       {`Node Counter ${NodeCounter.count}`}
       <Tree
         rootNode={rootNode}
+        onCollapseNode={(node) => {
+          console.log(`Node with id ${node.caption} was collapsed`);
+        }}
+        onExpandNode={(node) => {
+          console.log(`Node with id ${node.caption} was expanded`);
+        }}
         onSelectNode={(node) => {
           console.log(`Node with id ${node.caption} was clicked`);
         }}
