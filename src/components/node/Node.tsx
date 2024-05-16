@@ -50,7 +50,9 @@ export const Node: React.FC<INodeProps> = (props) => {
             </>
           )}
         </div>
-        <div onClick={onSelectNode}>{props.node.caption}</div>
+        <div className={styles.caption} onClick={onSelectNode}>
+          {props.node.caption}
+        </div>
       </div>
       {expanded && <div>{items}</div>}
     </>
