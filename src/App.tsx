@@ -8,7 +8,12 @@ export const App: React.FC = () => {
   return (
     <>
       {`Node Counter ${NodeCounter.count}`}
-      <Tree rootNode={rootNode} />
+      <Tree
+        rootNode={rootNode}
+        onSelectNode={(node) => {
+          console.log(`Node with id ${node.caption} was clicked`);
+        }}
+      />
     </>
   );
 };

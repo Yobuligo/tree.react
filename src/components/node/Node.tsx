@@ -10,7 +10,12 @@ export const Node: React.FC<INodeProps> = (props) => {
   const nextLevel = props.level + 1;
 
   const items = props.node.nodes?.map((node) => (
-    <Node key={node.caption} level={nextLevel} node={node} />
+    <Node
+      key={node.caption}
+      level={nextLevel}
+      node={node}
+      onSelectNode={(node) => props.onSelectNode?.(node)}
+    />
   ));
 
   const style = {
@@ -20,6 +25,8 @@ export const Node: React.FC<INodeProps> = (props) => {
   const onCollapse = () => setExpanded(false);
 
   const onExpand = () => setExpanded(true);
+
+  const onSelectNode = () => props.onSelectNode?.(props.node);
 
   return (
     <>
@@ -43,7 +50,7 @@ export const Node: React.FC<INodeProps> = (props) => {
             </>
           )}
         </div>
-        {props.node.caption}
+        <div onClick={onSelectNode}>{props.node.caption}</div>
       </div>
       {expanded && <div>{items}</div>}
     </>
